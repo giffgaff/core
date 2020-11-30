@@ -10,14 +10,12 @@
 namespace Flarum\Filter;
 
 use Flarum\Discussion\Discussion;
-use Flarum\Discussion\Filter\AuthorFilter;
-use Flarum\Discussion\Filter\CreatedFilter;
-use Flarum\Discussion\Filter\HiddenFilter;
-use Flarum\Discussion\Filter\UnreadFilter;
+use Flarum\Discussion\Filter as DiscussionFilter;
 use Flarum\Foundation\AbstractServiceProvider;
-use Flarum\User\Filter\EmailFilter;
-use Flarum\User\Filter\GroupFilter;
+use Flarum\Post\Post;
+use Flarum\Post\Filter as PostFilter;
 use Flarum\User\User;
+use Flarum\User\Filter as UserFilter;
 
 class FilterServiceProvider extends AbstractServiceProvider
 {
@@ -31,14 +29,21 @@ class FilterServiceProvider extends AbstractServiceProvider
         $this->app->singleton('flarum.filter.filters', function () {
             return [
                 Discussion::class => [
-                    AuthorFilter::class,
-                    CreatedFilter::class,
-                    HiddenFilter::class,
-                    UnreadFilter::class,
+                    DiscussionFilter\AuthorFilter::class,
+                    DiscussionFilter\CreatedFilter::class,
+                    DiscussionFilter\HiddenFilter::class,
+                    DiscussionFilter\UnreadFilter::class,
+                ],
+                Post::class => [
+                    PostFilter\AuthorFilter::class,
+                    PostFilter\DiscussionFilter::class,
+                    PostFilter\IdFilter::class,
+                    PostFilter\NumberFilter::class,
+                    PostFilter\TypeFilter::class,
                 ],
                 User::class => [
-                    EmailFilter::class,
-                    GroupFilter::class,
+                    UserFilter\EmailFilter::class,
+                    UserFilter\GroupFilter::class,
                 ]
             ];
         });
