@@ -14,10 +14,14 @@
         <div id="modal"></div>
         <div id="alerts"></div>
 
+        <!-- workaround for old iOS devices -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.6/es6-shim.min.js" integrity="sha512-Dg4/NsM35WYe4Vpj/ZzxsN7K4ifsi6ecw9+VB5rmCntqoQjEu4dQxL6/qQVebHalidCqWiVkWVK59QtJCCjBDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proxy-polyfill/0.3.2/proxy.min.js" integrity="sha512-rkQmC9k6r2JmC6vL68NnR2dPJnAg2zcAX562Y097B2TVaxUkF910WNhHJgdgz+NX2bJ0Lx8RegJ1vE87OKWlag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
         <script>
             document.getElementById('flarum-loading').style.display = 'block';
             var flarum = {extensions: {}};
-        </script>
+        </script>    
 
         {!! $js !!}
 
