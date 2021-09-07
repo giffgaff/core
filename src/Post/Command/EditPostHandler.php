@@ -57,6 +57,7 @@ class EditPostHandler
 
         if ($post instanceof CommentPost) {
             $attributes = Arr::get($data, 'attributes', []);
+            $this->validator->assertValid($attributes);
 
             if (isset($attributes['content'])) {
                 $actor->assertCan('edit', $post);
