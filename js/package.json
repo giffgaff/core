@@ -2,7 +2,7 @@
   "private": true,
   "name": "@flarum/core",
   "dependencies": {
-    "@babel/preset-typescript": "^7.10.1",
+    "@babel/preset-typescript": "^7.16.7",
     "@types/mithril": "^2.0.3",
     "bootstrap": "^3.4.1",
     "classnames": "^2.2.5",
